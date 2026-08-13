@@ -70,10 +70,6 @@ header{
     display:none;
 }
 
-#menu-toggle:checked ~ .nav-links{
-    right:0;
-}
-
 /* Hero */
 
 .hero{
@@ -424,6 +420,7 @@ footer p{
 
     .navbar{
         display:flex;
+        flex-direction: row-reverse;
         justify-content:space-between;
         align-items:center;
         position:relative;
@@ -444,7 +441,7 @@ footer p{
     .nav-links{
         position:fixed;
         top:80px;
-        right:-280px;
+        left:-280px;
         width:70%;
         max-width:260px;
         height:100vh;
@@ -454,10 +451,13 @@ footer p{
         align-items:center;
         justify-content:flex-start;
         gap:30px;
-        transition:right 0.3s ease;
+        transition:left 0.3s ease;
         z-index:1000;
     }
 
+    #menu-toggle:checked ~ .nav-links {
+        left: 0;
+    }
     .hero{
         padding:70px 20px;
     }
