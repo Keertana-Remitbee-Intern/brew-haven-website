@@ -8,6 +8,10 @@
 
 /* Body */
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family:Arial, Helvetica, sans-serif;
     background:#EFEBE9;
@@ -30,6 +34,7 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    position:relative;
 }
 
 .logo{
@@ -57,6 +62,18 @@ header{
 
 .nav-links a:hover{
     color:#D7CCC8;
+}
+
+#menu-toggle{
+    display:none;
+}
+
+.menu-icon{
+    display:none;
+}
+
+#menu-toggle:checked ~ .nav-links{
+    right:0;
 }
 
 /* Hero */
@@ -408,13 +425,38 @@ footer p{
     }
 
     .navbar{
-        flex-direction:column;
-        gap:20px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        position:relative;
+    }
+
+    .logo{
+        font-size:28px;
+    }
+
+    .menu-icon{
+        display:block;
+        color:white;
+        font-size:30px;
+        cursor:pointer;
+        z-index:1001;
     }
 
     .nav-links{
+        position:fixed;
+        top:0;
+        right:-280px;
+        width:280px;
+        height:100vh;
+        background:#3E2723;
+        display:flex;
         flex-direction:column;
         align-items:center;
+        justify-content:center;
+        gap:30px;
+        transition:right 0.3s ease;
+        z-index:1000;
     }
 
     .hero{
@@ -422,7 +464,7 @@ footer p{
     }
 
     .hero h2{
-        font-size:38px;
+        font-size:32px;
     }
 
     .hero p{
